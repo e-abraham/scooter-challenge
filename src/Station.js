@@ -1,3 +1,5 @@
+const App = require("./App");
+
 class Station {
     static idCounter = 1;
 
@@ -5,7 +7,8 @@ class Station {
         this.id = Station.idCounter;
         this.scooters = [];
         this.broken = [];
-
+        
+        App.stations.push(this);
         Station.idCounter++;
     }
 
@@ -27,6 +30,9 @@ class Station {
     }
 
     removeScooter(scooter){
+        if(!this.scooters.includes(scooter)){
+            return "Cannot find scooter at charging station.";
+        }
         scooter.setStation("");
         const index = this.scooters.indexOf(scooter);
         this.scooters.splice(index, 1);

@@ -6,10 +6,10 @@ class User {
     scooter: Scooter
     loginID: INTEGER
     downloadApp()
-    pay()
     rentScooter()
     setScooter()
     returnScooter()
+    pay()
     report()
 }
 

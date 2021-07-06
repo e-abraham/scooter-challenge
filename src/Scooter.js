@@ -4,8 +4,9 @@ class Scooter {
     constructor(){
         this.id = Scooter.idCounter;
         this.isCharged = false;
-        this.station = ""
+        this.station;
         this.distance = Math.floor(Math.random() * 32);
+        this.rideTime;
 
         Scooter.idCounter++;
     }
@@ -18,16 +19,17 @@ class Scooter {
         this.isCharged = boolean;
     }
 
-    rentScooter(time){
-        let rideTime = 0;
-        while (rideTime < time){
-            if(distance === 32){
-                return "Scooter battery has run out, time to return scooter to a charing station."
+    rideScooter(time){
+        this.rideTime = 0;
+        while (this.rideTime < time){
+            if(this.distance === 32){
+                this.setCharged(false);
+                return "Scooter battery has run out, please return scooter to a charging station.";
             }
             this.distance++
-            rideTime++
+            this.rideTime++
         }
-        return "Your rental period has ended, please return scooter to a charing station";
+        return "Your rental period has ended, time to return scooter to a charging station.";
     }
 }
 

@@ -1,13 +1,17 @@
 const Station = require("../src/Station");
 const Scooter = require("../src/Scooter");
+const App = require("../src/App");
 
 describe("Station class", () => {
+    const testApp = new App();
     const stationA = new Station();
     const stationB = new Station();
     const scooterA = new Scooter();
     
     test("new station has no scooters", () => {
         const basic = [stationA.scooters.length, stationA.broken.length];
+        expect(App.stations).toContain(stationA);
+        expect(App.stations).toContain(stationB);
         expect(basic).toEqual([0, 0]);
     })
 
